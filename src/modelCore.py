@@ -441,9 +441,9 @@ def create_model( IMC_model_idx, freeze_featex, window_size_list ) :
 
 def load_pretrain_model_by_index( pretrain_index, model_dir ) :
     if ( pretrain_index == 4 ) :
-        IMC_model_idx, freeze_featex, window_size_list  = 2, False, [7, 15, 31]
+        IMC_model_idx, freeze_featex, window_size_list  = 2, True, [7, 15, 31]
     else :
-        IMC_model_idx, freeze_featex, window_size_list  = pretrain_index, False, [7, 15, 31, 63]
+        IMC_model_idx, freeze_featex, window_size_list  = pretrain_index, True, [7, 15, 31, 63]
     single_gpu_model = create_model( IMC_model_idx, freeze_featex, window_size_list )
     weight_file = "{}/ManTraNet_Ptrain{}.h5".format( model_dir, pretrain_index )
     assert os.path.isfile(weight_file), "ERROR: fail to locate the pretrained weight file"
